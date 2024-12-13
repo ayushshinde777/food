@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>
+            FOOD APP
+        </title>
+
+        <style>
+            *{text-align: center;color: aqua;font-size: 40px;font-family: 'Times New Roman', Times, serif;}
+            body{background-color: azure;}
+            .btn{width: 20%;color: black;background-color: bisque;margin: 3%;}
+            .btn:hover{background-color: black;color: bisque;}
+        </style>
+
+    </head>
+
+    <body>
+        <center>
+            <h1>FOOD APP</h1>
+            <br/><br/>
+
+            <form onsubmit="show()">
+		<label>Enter your name:</label>
+                <input type = "text" id="name" placeholder="please enter name"  style="width: 70%;" /> 
+		                        
+                <br/><br/>
+		
+                <input type = "radio" name="f" id="ni" />North Indian
+                <input type = "radio" name="f" id="si" />South Indian
+                <input type = "radio" name="f" id="ff" />fast food
+                <br/><br/>
+                <input type = "submit" value="submit" class="btn" />
+                
+            </form>
+                <h2 id="msg"></h2>
+            
+                <script>
+                {
+                    function show()
+                    {
+                    
+                    
+                        event.preventDefault();
+                        let name = document.getElementById("name");
+                        let ni = document.getElementById("ni");
+                        let si= document.getElementById("si");
+                        let ff = document.getElementById("ff");
+                        let msg = document.getElementById("msg");
+                        
+                        
+                        if (name.value === "")
+                        {
+                        alert("name is empty");
+                        msg.innerHTML ="";
+                        name.focus();
+                        return;
+                        }
+
+			            if (name.value.trim() === "")
+                        {
+			
+                        alert("name is empty");
+			            name.value= "";
+                        msg.innerHTML ="";
+                        name.focus();
+                        return;
+                        }
+
+			            if (!name.value.match(/^[A-Za-z ]+$/))
+                        {
+			
+                        alert("name should be alphabetical");
+                        name.value= "";
+			            msg.innerHTML ="";
+                        name.focus();
+                        return;
+                        }
+                        
+
+
+                        let choice ="";
+                        if(ni.checked)         choice="north indian";
+                        else if(si.checked)         choice="south indian";
+                        else           choice="fast food";
+                        
+                        let ans= "name=" + name.value +"choice=" + choice;  
+                        msg.innerHTML=ans;
+                    }
+                    
+                }
+            
+
+            </Script> 
+        </center>
+    </body>
+</html>
